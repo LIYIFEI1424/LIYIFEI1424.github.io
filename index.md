@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>李翼菲的个人主页</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #1a1a1a;
+      color: #e8e8e8;
+      min-height: 100vh;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(26,26,26,0.95);
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-left { display: flex; align-items: center; gap: 12px; }
+    .logo { font-size: 22px; font-weight: 800; color: #f5f0e6; letter-spacing: 2px; }
+    .logo-dot { width: 6px; height: 6px; border-radius: 50%; background: #c9a96e; }
+    .nav-subtitle { font-size: 12px; color: #999; }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a {
+      color: #ccc; text-decoration: none; font-size: 14px;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: #c9a96e; }
+    .nav-right a {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 20px; border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 20px; color: #ddd; text-decoration: none;
+      font-size: 13px; transition: all 0.3s;
+    }
+    .nav-right a:hover { border-color: #c9a96e; color: #c9a96e; }
+
+    .hero {
+      max-width: 1200px; margin: 0 auto;
+      padding: 140px 48px 60px;
+      display: flex; gap: 60px; align-items: flex-start;
+    }
+
+    .hero-left { flex: 1; padding-top: 10px; }
+    .big-name {
+      font-size: 110px; font-weight: 900; line-height: 1.05;
+      color: #f5f0e6; letter-spacing: 12px;
+      margin-bottom: -5px;
+    }
+    .name-line {
+      width: 80px; height: 3px; background: linear-gradient(90deg,#c9a96e,#e8d5a3);
+      margin-bottom: 28px; border-radius: 2px;
+    }
+
+    .tags { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px; }
+    .tag {
+      padding: 6px 16px; border-radius: 4px; font-size: 13px;
+      border: 1px solid rgba(255,255,255,0.25); color: #ddd;
+    }
+    .tag.highlight {
+      background: rgba(201,169,110,0.15); border-color: #c9a96e;
+      color: #e8d5a3;
+    }
+
+    .subtitle {
+      font-size: 24px; font-weight: 600; margin-bottom: 14px; color: #fff;
+    }
+    .subtitle em {
+      background: rgba(201,169,110,0.2); color: #e8d5a3;
+      font-style: normal; padding: 2px 8px; border-radius: 4px;
+    }
+    .intro-text {
+      font-size: 15px; line-height: 1.9; color: #aaa; margin-bottom: 32px;
+      max-width: 520px;
+    }
+
+    .timeline-list { list-style: none; }
+    .timeline-list li {
+      display: flex; align-items: baseline; gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 14px;
+    }
+    .timeline-num { color: #666; min-width: 30px; }
+    .timeline-text { color: #bbb; flex: 1; }
+    .timeline-link { color: #888; opacity: 0; transition: opacity 0.3s; cursor: pointer; }
+    .timeline-list li:hover .timeline-link { opacity: 1; }
+
+    .hero-right {
+      width: 400px; flex-shrink: 0;
+      display: flex; justify-content: flex-end;
+    }
+    .avatar-wrapper {
+      width: 360px; height: 480px; overflow: hidden;
+      border-radius: 4px; position: relative;
+    }
+    .avatar-img {
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: top center;
+    }
+    .avatar-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #2a2a2a, #383838);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      color: #555; font-size: 14px; gap: 12px;
+    }
+    .avatar-placeholder svg { width: 64px; height: 64px; opacity: 0.3; }
+
+    @media (max-width: 900px) {
+      .hero { flex-direction: column-reverse; padding: 110px 24px 40px; }
+      .big-name { font-size: 64px; letter-spacing: 6px; }
+      .hero-right { width: 100%; justify-content: center; }
+      .avatar-wrapper { width: 280px; height: 370px; }
+      .navbar { padding: 14px 24px; }
+      .nav-links { display: none; }
+    }
+
+    footer {
+      text-align: center; padding: 40px;
+      color: #444; font-size: 13px; border-top: 1px solid rgba(255,255,255,0.04);
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-left">
+    <span class="logo">李翼菲</span>
+    <span class="logo-dot"></span>
+    <span class="nav-subtitle">华南理工大学 · 学生</span>
+  </div>
+  <div class="nav-links">
+    <a href="#about">关于</a>
+    <a href="#projects">项目</a>
+    <a href="#skills">技能</a>
+    <a href="#contact">联系</a>
+  </div>
+  <div class="nav-right">
+    <a href="https://github.com/李一飞1424" target="_blank">合作入口 ↗</a>
+  </div>
+</nav>
+
+<main class="hero">
+
+  <div class="hero-left" id="about">
+    <h1 class="big-name">李翼菲</h1>
+    <div class="name-line"></div>
+
+    <div class="tags">
+      <span class="tag">李翼菲</span>
+      <span class="tag highlight">产品探索者</span>
+      <span class="tag">华南理工 2022级</span>
+    </div>
+
+    <h2 class="subtitle">热爱技术与创造的<span>造梦者</span></h2>
+
+    <p class="intro-text">
+      一名对技术和产品充满热情的大学生，正在探索编程、数据分析与 AI 应用的无限可能。
+      从减脂追踪应用到微信小程序开发，从 Python 练习到前端设计，
+      相信技术可以让生活变得更美好。
+    </p>
+
+    <ul class="timeline-list">
+      <li>
+        <span class="timeline-num">/01</span>
+        <span class="timeline-text">华南理工大学 · 在校学生</span>
+        <span class="timeline-link">↗</span>
+      </li>
+      <li>
+        <span class="timeline-num">/02</span>
+        <span class="timeline-text">fatburn-tracker · 减脂追踪应用（Web + 微信小程序）</span>
+        <span class="timeline-link">↗</span>
+      </li>
+      <li>
+        <span class="timeline-num">/03</span>
+        <span class="timeline-text">Python / JavaScript / MQTT 云同步探索</span>
+        <span class="timeline-link">↗</span>
+      </li>
+      <li>
+        <span class="timeline-num">/04</span>
+        <span class="timeline-text">AI 硬件调研 · OpenClaw 与 AI 盒子方案探索</span>
+        <span class="timeline-link">↗</span>
+      </li>
+    </ul>
+
+    <p style="color:#888; font-size:14px; margin-top:24px;">
+      📧 联系邮箱：<a href="mailto:1708063240@qq.com" style="color:#c9a96e; text-decoration:none;">1708063240@qq.com</a>
+    </p>
+  </div>
+
+  <div class="hero-right">
+    <div class="avatar-wrapper">
+      <img class="avatar-img"
+           src=""
+           alt="李翼菲"
+           onerror="
+             this.style.display='none';
+             this.nextElementSibling.style.display='flex';
+           ">
+      <div class="avatar-placeholder" style="display:none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        <span>上传你的个人照片</span>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  &copy; 2026 李翼菲 · 用 GitHub Pages 搭建
+</footer>
+
+</body>
+</html>
