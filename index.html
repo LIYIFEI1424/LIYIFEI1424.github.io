@@ -84,14 +84,23 @@
     .timeline-list { list-style: none; }
     .timeline-list li {
       display: flex; align-items: baseline; gap: 16px;
-      padding: 14px 0;
+      padding: 0;
       border-bottom: 1px solid rgba(255,255,255,0.06);
       font-size: 14px;
     }
+    .timeline-item {
+      display: flex; align-items: baseline; gap: 16px;
+      width: 100%;
+      padding: 14px 0;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.3s;
+    }
+    .timeline-item:hover { background: rgba(255,255,255,0.03); }
     .timeline-num { color: #666; min-width: 30px; }
     .timeline-text { color: #bbb; flex: 1; }
-    .timeline-link { color: #888; opacity: 0; transition: opacity 0.3s; cursor: pointer; }
-    .timeline-list li:hover .timeline-link { opacity: 1; }
+    .timeline-link { color: #888; opacity: 0; transition: opacity 0.3s; }
+    .timeline-item:hover .timeline-link { opacity: 1; }
 
     .hero-right {
       width: 400px; flex-shrink: 0;
@@ -138,10 +147,10 @@
     <span class="nav-subtitle">华南理工大学 · 学生</span>
   </div>
   <div class="nav-links">
-    <a href="#internship">实习经历</a>
-    <a href="#campus">校园生活</a>
-    <a href="#hobbies">兴趣爱好</a>
-    <a href="#contact">联系方式</a>
+    <a href="detail-01.html">实习经历</a>
+    <a href="detail-02.html">校园生活</a>
+    <a href="detail-03.html">兴趣爱好</a>
+    <a href="detail-04.html">联系方式</a>
   </div>
   <div class="nav-right">
     <a href="https://github.com/李一飞1424" target="_blank">合作入口 ↗</a>
@@ -170,24 +179,32 @@
 
     <ul class="timeline-list">
       <li>
-        <span class="timeline-num">/01</span>
-        <span class="timeline-text">华南理工大学 · 在校学生</span>
-        <span class="timeline-link">↗</span>
+        <a href="detail-01.html" class="timeline-item">
+          <span class="timeline-num">/01</span>
+          <span class="timeline-text">华南理工大学 · 在校学生</span>
+          <span class="timeline-link">↗</span>
+        </a>
       </li>
       <li>
-        <span class="timeline-num">/02</span>
-        <span class="timeline-text">fatburn-tracker · 减脂追踪应用（Web + 微信小程序）</span>
-        <span class="timeline-link">↗</span>
+        <a href="detail-02.html" class="timeline-item">
+          <span class="timeline-num">/02</span>
+          <span class="timeline-text">fatburn-tracker · 减脂追踪应用（Web + 微信小程序）</span>
+          <span class="timeline-link">↗</span>
+        </a>
       </li>
       <li>
-        <span class="timeline-num">/03</span>
-        <span class="timeline-text">Python / JavaScript / MQTT 云同步探索</span>
-        <span class="timeline-link">↗</span>
+        <a href="detail-03.html" class="timeline-item">
+          <span class="timeline-num">/03</span>
+          <span class="timeline-text">Python / JavaScript / MQTT 云同步探索</span>
+          <span class="timeline-link">↗</span>
+        </a>
       </li>
       <li>
-        <span class="timeline-num">/04</span>
-        <span class="timeline-text">AI 硬件调研 · OpenClaw 与 AI 盒子方案探索</span>
-        <span class="timeline-link">↗</span>
+        <a href="detail-04.html" class="timeline-item">
+          <span class="timeline-num">/04</span>
+          <span class="timeline-text">AI 硬件调研 · OpenClaw 与 AI 盒子方案探索</span>
+          <span class="timeline-link">↗</span>
+        </a>
       </li>
     </ul>
 
