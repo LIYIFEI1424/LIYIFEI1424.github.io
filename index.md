@@ -157,7 +157,7 @@
     <div class="tags">
       <span class="tag">李翼菲</span>
       <span class="tag highlight">产品探索者</span>
-      <span class="tag">华南理工 2022级</span>
+      <span class="tag">华南理工 2025级</span>
     </div>
 
     <h2 class="subtitle">热爱技术与创造的<span>造梦者</span></h2>
